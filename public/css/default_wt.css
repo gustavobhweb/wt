@@ -1,0 +1,256 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+	background: #EEEEEE;
+	font-family: Roboto;
+}
+
+p,h1,h2,h3,h4,h5,h6{
+	font-family: Roboto;
+}
+
+select{
+	padding: 3px;
+	border:1px solid #DDDDDD;
+	border-radius: 3px;
+	outline: none;
+	background: linear-gradient(to top, #EEEEEE, #FFFFFF);
+	font: 13px Roboto;
+	color: #555555;
+}
+
+input[type=text]{
+	padding: 4px;
+	outline: none;
+	box-sizing: border-box;
+	border-radius: 3px;
+	border: 1px solid #DDDDDD;
+	font: 13px Roboto;
+	color: #555555;
+}
+
+.header{
+	height: 50px;
+	width: 100%;
+	background: #333333;
+	/*position: fixed;
+	left:0;
+	top:0;*/
+}
+
+.header img{
+	width: 80px;
+	float: left;
+	margin: 12px 0 0 0;
+}
+
+#btn-menu-header{
+	width: 18px;
+	height: 15px;
+	background: url(../img/menu.png) no-repeat;
+	border: none;
+	cursor: pointer;
+	float:right;
+	margin: 17.5px 0 0 0;
+	transition:0.2s;
+	outline: none;
+}
+
+#btn-menu-header:hover{
+	transform: scale(1.1);
+}
+#btn-menu-header:active{
+	transform: scale(1);
+}
+
+.main{
+	width: calc(100% - 50px);
+	margin: 0 auto;
+}
+
+.menu{
+	float:left;
+	background: #ff0;
+	width:250px;
+	background: #EEEEEE;
+	box-sizing: border-box;
+}
+
+.menu .top{
+	padding: 20px 0;
+}
+
+.menu .top img{
+	float: left;
+	width: 40px;
+	height: 40px;
+	border-radius: 100%;
+}
+
+.menu .top h5{
+	float: left;
+	font: 12px Roboto;
+	color: #999999;
+	margin: 0 0 0 10px;
+	width: calc(100% - 50px);
+}
+
+.menu .top p{
+	float: left;
+	font: 16px Roboto;
+	color: #333333;
+	margin: 0 0 0 10px;
+	width: calc(100% - 50px);
+	font-weight: lighter;
+}
+
+#input-search{
+	text-transform: uppercase;
+	height: 40px;
+	width: 75%;
+	border: none;
+	background: #DDDDDD;
+	font: 14px Roboto;
+	font-weight: lighter;
+	outline: none;
+	color: #333333;
+	padding: 0 25px;
+	box-sizing: border-box;
+	float: left;
+}
+
+#button-search{
+	width: 25%;
+	float: left;
+	border: none;
+	height: 40px;
+	color: #BBBBBB;
+	outline: none;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.menu ul{
+	width: 100%;
+}
+
+.menu ul li{
+	width: 100%;
+	height: 40px;
+}
+
+.menu ul li a.on, .menu ul li a:hover{
+	background: #E6A759;
+	color: white
+}
+
+.menu ul li a{
+	width: 100%;
+	height: 100%;
+	display: inline-block;
+	text-decoration: none;
+	font: 15px Roboto;
+	font-weight: lighter;
+	background: #EEEEEE;
+	color: #999999;
+	cursor: pointer;
+	box-sizing: border-box;
+	padding: 10px 25px;
+	border-bottom: 1px solid #DDDDDD;
+}
+
+.menu ul li a.on, .menu ul li a:hover{
+	color: white;
+}
+
+#button-search:hover{
+	color: #CACACA
+}
+
+.content{
+	float: left;
+	width: calc(100% - 250px);
+	box-sizing: border-box;
+	padding: 25px;
+	border-left: 1px solid #DDDDDD;
+	background: white;
+	min-height: calc(100% - 50px)
+}
+
+.submenu{
+	width: calc(100% - 251px);
+	background: #EEEEEE;
+	border-left: 1px solid #DDDDDD;
+	float: left;
+}
+
+.submenu ul{
+	list-style: none
+}
+
+.submenu ul li{
+	border-right: 1px solid #DDDDDD;
+	float: left;
+	background: #EEEEEE;
+}
+.submenu ul li:hover a{
+	background: #FFFFFF;
+}
+
+.submenu ul li a{
+	display: inline-block;
+	padding: 10px 6px 10px 14px;
+	float: left;
+	font: 14px Roboto;
+	color: #999999;
+	background: #EEEEEE;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.submenu ul li:hover a, .submenu ul li.on a{
+	background: #FFFFFF;
+	color: #333333;
+}
+
+.submenu ul li a.close{
+	padding: 10px 10px 10px 0;
+}
+
+.submenu ul li a.close:hover{
+	color: #999999;
+}
+
+.submenu ul li a.close:active{
+	color: #333333;
+}
+
+/**
+* Buttons
+*/
+
+.btn{
+	background: #EEEEEE;
+	border: 1px solid #DDDDDD;
+	padding: 2px 6px;
+	text-decoration: none;
+	font: 14px Roboto;
+	font-weight: normal;
+	color: #777777;
+	border-radius: 3px;
+	box-shadow: inset 0px -1px 4px #CCCCCC;
+}
+
+.btn:hover{
+	background: #FFFFFF;
+	box-shadow: inset 0px -1px 4px #EEEEEE;
+}
+
+.clear{
+	clear: both;
+}

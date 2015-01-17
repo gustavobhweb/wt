@@ -1,0 +1,9 @@
+.input-error {
+	box-shadow: #F99 0px 0px 4px 0px !important;
+	border: 1px solid #FF5959 !important;
+}
+
+.input-valid {
+	box-shadow: #B3FF99 0px 0px 9px 0px !important;
+	border: 1px solid #2BA800 !important;
+}
