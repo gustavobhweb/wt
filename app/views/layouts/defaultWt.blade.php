@@ -9,9 +9,10 @@
 	{{ HTML::style('css/glyphicons.css') }}
 	{{ HTML::style('css/default_wt.css') }}
 	{{ HTML::style('css/jtable.css') }}
-	@yield('styles') 
+	@yield('styles')
 
 	{{ HTML::script('js/jquery-1.11.0.min.js') }}
+	{{ HTML::script('js/default.js') }}
 	@yield('scripts')
 </head>
 <body>
@@ -22,6 +23,13 @@
 			<button id="btn-menu-header"></button>
 		</div><!-- .main -->
 	</div><!-- .header -->
+
+	<div data-open="false" id="right-top-menu">
+		<ul>
+			<li><a href="#"><i class="glyphicon glyphicon-user"></i> Minha conta</a></li>
+			<li><a href="{{ URL::to('logout') }}"><i class="glyphicon glyphicon-remove"></i> Sair</a></li>
+		</ul>
+	</div><!-- .right-top-menu -->
 
 	<div class="menu">
 		<div class="top">
@@ -71,6 +79,12 @@
 		</ul>
 	</div><!-- .submenu -->
 	@endif
+
+	<div class="topbar">
+		@yield('topbar')
+		<div class="clear"></div>
+	</div><!-- .topbar -->
+
 	<div class="content">
 		@yield('content')
 	</div><!-- .content -->

@@ -2,9 +2,12 @@
 
 @section('title') ACL @stop
 
-@section('content')
+@section('topbar')
+	<h4><i class="glyphicon glyphicon-lock"></i> Access Control List</h4>
+	<button class="btn medium orange btn-gerenciar dropdown-toggle"><i class="glyphicon glyphicon-cog"></i> Gerenciar <span class="caret"></span></button>
+@endsection
 
-	<a href="{{ URL::to('admin/cadastrar-permissoes') }}" class="wm-btn wm-btn-blue">Cadastrar permissões</a><br><br>
+@section('content')
 
 	@if(isset($message))
 		<div class="j-alert-error">
@@ -27,7 +30,7 @@
 			<option value="{{ $permissao->id }}">{{ "{$permissao->name} ({$permissao->type})" }}</option>
 			@endforeach
 		</select>
-		<button type="submit" class="wm-btn wm-btn-blue">Salvar</button>
+		<button type="submit" class="btn green medium"><i class="glyphicon glyphicon-ok"></i> Salvar</button>
 	</form>
 
 	<div class="jtable" style="margin:20px 0 0 0">
@@ -47,7 +50,7 @@
 					<td style="text-align:center">{{ $nivel->permissoes->count() }}</td>
 					<td style="text-align:center">{{ Usuario::whereNivelId($nivel->id)->count() }}</td>
 					<td style="text-align:center">
-						<a href="{{ URL::to('admin/permissoes/' . $nivel->id) }}" class="btn blue"><i class="glyphicon glyphicon-edit"></i> Permissões</a>
+						<a href="{{ URL::to('admin/permissoes/' . $nivel->id) }}" class="btn orange"><i class="glyphicon glyphicon-edit"></i> Permissões</a>
 					</td>
 				</tr>
 				@endforeach

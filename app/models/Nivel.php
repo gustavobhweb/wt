@@ -12,4 +12,9 @@ class Nivel extends Eloquent
     {
     	return $this->belongsToMany('Permissao', 'niveis_permissoes');
     }
+
+    public function usuarios()
+    {
+    	return $this->hasMany('Usuario', 'nivel_id');
+    }
 }

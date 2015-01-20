@@ -242,4 +242,22 @@ class AdminController extends BaseController
     	return View::make('admin.wt');
     }
 
+    public function anyGerenciarNiveis()
+    {
+    	$vars['niveis'] = Nivel::all();
+
+    	if (Request::isMethod('post')){
+    		$nome = Input::get('nome-nivel');
+    		if (!Nivel::whereTitulo($nome)->count()) {
+    			$vars['error'] = "Já existe um nível cadastrado com o nome {$nome}";
+    		} else {
+    			Nivel::create([
+    				'titulo' => $nome
+    			]);
+    		}
+    	}
+
+    	return View::make('admin.gerenciar-niveis', $vars);
+    }
+
 }

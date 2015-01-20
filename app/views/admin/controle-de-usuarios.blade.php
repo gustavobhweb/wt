@@ -4,8 +4,8 @@
 
 @section('content')
 	<div style="width:100%">
-		<a href="{{ URL::to('admin/cadastrar-usuarios') }}" class="wm-btn wm-btn-blue"><i class="glyphicon glyphicon-user"></i> Cadastrar novo usuário</a>
-		<a href="{{ URL::to('admin/cadastrar-niveis') }}" class="wm-btn wm-btn-blue"><i class="glyphicon glyphicon-tower"></i> Cadastrar nível</a>
+		<a href="{{ URL::to('admin/cadastrar-usuarios') }}" class="btn medium blue"><i class="glyphicon glyphicon-plus"></i> Cadastrar novo usuário</a>
+		<a href="{{ URL::to('admin/gerenciar-niveis') }}" class="wm-btn wm-btn-blue"><i class="glyphicon glyphicon-tower"></i> Gerenciar níveis</a>
 	</div>
 	@foreach($niveis as $nivel)
 	<div class="section-nivel" data-id="{{ $nivel->id }}">

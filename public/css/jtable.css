@@ -77,26 +77,43 @@
 	border: none
 }
 
-.table table tbody {
-	
-}
-
+/**
+* Row colors
+*/
 .jtable table tbody tr:nth-child(odd) {
 	background: #FFF1DF;
 }
-
 .jtable table tbody tr:nth-child(even) {
 	background: #FFFFFF;
 }
-
 .jtable table tbody tr:hover {
 	background: #F9DCB7;
+}
+
+.jtable.green table tbody tr:nth-child(odd) {
+	background: #E1ECD7;
+}
+.jtable.green table tbody tr:nth-child(even) {
+	background: #F8F8F8;
+}
+.jtable.green table tbody tr:hover {
+	background: #CDEAB3;
 }
 
 .jtable table tbody tr td {
 	padding: 6px 10px;
 	font: 14px Roboto;
 	color: #222222;
+}
+
+.jtable table tbody tr td.center{
+	text-align: center;
+}
+.jtable table tbody tr td.left{
+	text-align: center;
+}
+.jtable table tbody tr td.right{
+	text-align: center;
 }
 
 .jtable div[data-section="footer"] {

@@ -1,25 +1,17 @@
 $(document).ready(function(){
-
-    $('.minha-conta').click(function(){
-        var $linkLogout = $('.sair-link');
-        if ($linkLogout.is(':visible')) {
-            $linkLogout.fadeOut();
+    var $btnMenuHeader = $('#btn-menu-header');
+    var $rightTopMenu = $('#right-top-menu');
+    $btnMenuHeader.on('click', function(){
+        if ($rightTopMenu.data('open')) {
+            $rightTopMenu.animate({
+                width: '0px'
+            }, function(){
+                $(this).hide().data('open', false);
+            });
         } else {
-            $linkLogout.fadeIn();
+            $rightTopMenu.animate({
+                width: '180px'
+            }).show().data('open', true);
         }
     });
-
-    // # Modal Flash # //
-
-    $('#modal-flash').find('.cancel-flash-modal').click(function(e){
-    	e.preventDefault();
-    	$(this).closest('#modal-flash').fadeOut();
-    });
-
-
-    if ($.fn.draggable) {
-    	$(".wm-modal-box").draggable({
-    		handle: '.wm-modal-title'
-    	});
-    }
 });
