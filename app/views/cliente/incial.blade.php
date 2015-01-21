@@ -40,11 +40,15 @@
 @endsection
 
 @section('scripts')
-	{{ HTML::script('js/globalize.min.js'),
-	   HTML::script('js/dx.chartjs.js'),
-	   HTML::script('js/cliente/inicial.js') }}
+{{
+    HTML::script('js/globalize.min.js'),
+	HTML::script('js/dx.chartjs.js'),
+	HTML::script('js/cliente/inicial.js') 
+}}
 @endsection
 
 @section('styles')
-	{{ HTML::style('css/cliente/inicial.css') }}
+{{ 
+    HTML::style('css/cliente/inicial.css') 
+}}
 @endsection

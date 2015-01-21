@@ -9,6 +9,11 @@
 
 @section('content')
 
+	<div class="charts">
+		<div class="pieChart"></div>
+		<div class="barsChart"></div>
+	</div><!-- .charts -->
+
 	@if(isset($message))
 		<div class="j-alert-error">
 			{{ $message }}
@@ -61,5 +66,16 @@
 @stop
 
 @section('styles')
-{{ HTML::style('css/jtable.css') }}
+{{ 
+	HTML::style('css/admin/acl.css'),
+	HTML::style('css/jtable.css') 
+}}
+@stop
+
+@section('scripts')
+{{ 
+	HTML::script('js/globalize.min.js'),
+	HTML::script('js/dx.chartjs.js'),
+	HTML::script('js/admin/acl.js')
+}}
 @stop
