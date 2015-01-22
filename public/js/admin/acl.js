@@ -1,3 +1,6 @@
+var myPalette = ['#7CBAB4', '#92C7E2', '#75B5D6', '#B78C9B', '#F2CA84', '#A7CA74'];
+DevExpress.viz.core.registerPalette('mySuperPalette', myPalette);
+
 $(function(){
 	var dataSource = [
 	    {nivel: "Aluno", val: 10},
@@ -14,7 +17,12 @@ $(function(){
 	    dataSource: dataSource,
 	    title: {
 	    	text: 'Permissões por nível',
-	    	horizontalAlignment: 'center'
+	    	horizontalAlignment: 'center',
+	    	font: {
+	    		family: 'Roboto',
+	    		size: 20,
+	    		color: '#555555'
+	    	}
 	    },
 		tooltip: {
 			enabled: true,
@@ -35,30 +43,31 @@ $(function(){
 					visible: true
 				}
 			}
-		}]
+		}],
+		palette: 'mySuperPalette'
 	});
 
 	var chart = $(".barsChart").dxChart({
 	    dataSource: dataSource,
-		rotated: true,
 	    commonSeriesSettings: {
 	        argumentField: "nivel",
 	        type: "bar"
 		},
 		title: {
-			text: 'Usuários por nível'
+			text: 'Usuários por nível',
+			font: {
+	    		family: 'Roboto',
+	    		size: 20,
+	    		color: '#555555'
+	    	}
 		},
 	    series: {
 			valueField: "val", 
-			name: "breeds",
-			color: "#069"
+			name: "nivel",
+			color: '#E6A759'
 		},
 	    legend: {
 			visible: false,     
-	    },
-		onPointClick: function(e) {
-			var point = e.target;
-			point.isSelected() ? point.clearSelection(): point.select();
-		}
+	    }
 	}).dxChart("instance");
 });

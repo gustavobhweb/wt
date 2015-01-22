@@ -1,7 +1,5 @@
 .jtable {
-	border-radius: 5px;
 	overflow: hidden;
-	border: 1px solid #ddd;
 }
 
 .jtable div[data-section="header"] {
@@ -53,8 +51,7 @@
 	cursor: pointer;
 }
 
-.jtable div[data-section="header"] #jsearch button[type="button"]:hover
-	{
+.jtable div[data-section="header"] #jsearch button[type="button"]:hover {
 	opacity: 0.8;
 }
 
@@ -67,7 +64,6 @@
 .jtable table thead tr th {
 	padding: 8px 10px;
 	background: #EEEEEE;
-	border-right: 1px solid #DDDDDD;
 	font: 15px Roboto;
 	color: #222222;
 	font-weight: normal;
@@ -80,10 +76,13 @@
 /**
 * Row colors
 */
-.jtable table tbody tr:nth-child(odd) {
+/*.jtable table tbody tr:nth-child(odd) {
 	background: #FFF1DF;
 }
 .jtable table tbody tr:nth-child(even) {
+	background: #FFFFFF;
+}*/
+.jtable table tbody tr {
 	background: #FFFFFF;
 }
 .jtable table tbody tr:hover {
@@ -101,7 +100,7 @@
 }
 
 .jtable table tbody tr td {
-	padding: 6px 10px;
+	padding: 8px 10px;
 	font: 14px Roboto;
 	color: #222222;
 }
@@ -117,14 +116,22 @@
 }
 
 .jtable div[data-section="footer"] {
-	background: #CCCCCC;
-	padding: 10px;
+	padding: 5px 10px;
+	border-top: 3px solid #DDDDDD;
+	border-bottom: 3px solid #DDDDDD;
+	margin: 10px 0 0 0;
+}
+
+.jtable div[data-section="footer"]:after{
+	content: '';
+	display: block;
+	clear: both;
 }
 
 .jtable div[data-section="footer"] .exibicao {
 	float: left;
-	font: 15px Calibri;
-	color: #000000;
+	font: 13px Roboto;
+	color: #999999;
 }
 
 .jtable div[data-section="footer"] div[data-section="pagination"] {
@@ -133,17 +140,17 @@
 
 .jtable div[data-section="footer"] div[data-section="pagination"] p {
 	display: inline;
-	font: 15px Calibri;
+	font: 15px Roboto;
 	color: #000000;
-	font-weight: bold;
+	font-weight: normal;
 	margin: 0 4px;
 }
 
 .jtable div[data-section="footer"] div[data-section="pagination"] a {
 	display: inline;
-	font: 15px Calibri;
+	font: 15px Roboto;
 	text-decoration: none;
-	color: #0088CC;
+	color: #E6A759;
 	margin: 0 2px;
 }
 

@@ -49,7 +49,7 @@ class AdminController extends BaseController
 
 	public function anyAcl()
 	{
-		$vars['niveis'] = Nivel::all();
+		$vars['niveis'] = Nivel::whereStatus(1)->paginate(10);
 		$vars['permissoes'] = Permissao::all();
 
 		if (Request::isMethod('post')) {

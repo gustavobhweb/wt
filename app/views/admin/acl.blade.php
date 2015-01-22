@@ -55,20 +55,25 @@
 					<td style="text-align:center">{{ $nivel->permissoes->count() }}</td>
 					<td style="text-align:center">{{ Usuario::whereNivelId($nivel->id)->count() }}</td>
 					<td style="text-align:center">
-						<a href="{{ URL::to('admin/permissoes/' . $nivel->id) }}" class="btn orange"><i class="glyphicon glyphicon-edit"></i> Permissões</a>
+						<a href="{{ URL::to('admin/permissoes/' . $nivel->id) }}" class="btn"><i class="glyphicon glyphicon-edit"></i> Permissões</a>
 					</td>
 				</tr>
 				@endforeach
 			</tbody>
 		</table>
+		<div data-section="footer">
+			<div class="exibicao">
+				{{ $niveis->getTotal() }} registros no total
+			</div><!-- .exibicao -->
+			{{ $niveis->links('elements.paginate') }}
+		</div><!-- .footer -->
 	</div><!-- .jtable -->
 
 @stop
 
 @section('styles')
 {{ 
-	HTML::style('css/admin/acl.css'),
-	HTML::style('css/jtable.css') 
+	HTML::style('css/admin/acl.css')
 }}
 @stop
 

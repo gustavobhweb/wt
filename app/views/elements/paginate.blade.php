@@ -27,6 +27,4 @@
 
 </div>
 
-<div class='clearfix'></div>
-
 @endif
