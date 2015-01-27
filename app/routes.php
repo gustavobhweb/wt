@@ -54,27 +54,6 @@ Route::group(['before' => 'auth'], function(){
     }
 });
 
-Route::group(['before' => 'nivel_admin_cliente'], function (){
-    if (Auth::check() && Auth::user()->nivel_id === 9) { 
-        Route::controller('admin-cliente', 'AdminClienteController');
-    }
-});
-
-Route::group(['before' => 'nivel_colaborador_cliente'], function ()
-{
-
-    Route::any('colaboradores', function ()
-    {
-        return Redirect::action('ColaboradoresController@getEnviarFoto');
-    });
-
-
-    Route::post('aluno/cropimage', ['uses' => 'AlunoController@postCropimage']);
-
-    Route::controller('colaboradores', 'ColaboradoresController');
-});
-
-
 Route::get('json/cidades', function ()
 {
     $cidade = Cidade::where('uf_id', '=', Input::get('uf_id'))->lists('nome');
