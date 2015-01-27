@@ -61,6 +61,12 @@ $(function(){
 	    		color: '#555555'
 	    	}
 		},
+		tooltip: {
+			enabled: true,
+			customizeText: function() { 
+				return this.valueText + " usuários";
+			}
+		},
 	    series: {
 			valueField: "val", 
 			name: "nivel",
