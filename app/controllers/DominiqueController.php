@@ -8,7 +8,7 @@ class DominiqueController extends Controller
 	private $fraseContext;
 
 	public function anyInicio()
-	{		
+	{
 		if (Request::isMethod('post')) {
 			$answer = $this->process(Input::get('frase'))->answer();
 		}
@@ -170,4 +170,5 @@ class DominiqueController extends Controller
 		curl_close($ch);
 		return json_decode($result)->query->pages;
 	}
+
 }	
