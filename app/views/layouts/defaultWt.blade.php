@@ -9,10 +9,12 @@
 	{{ HTML::style('css/glyphicons.css') }}
 	{{ HTML::style('css/default_wt.css') }}
 	{{ HTML::style('css/jtable.css') }}
+	{{ HTML::style('css/list-menu.css') }}
 	@yield('styles')
 
 	{{ HTML::script('js/jquery-1.11.0.min.js') }}
 	{{ HTML::script('js/default.js') }}
+	{{ HTML::script('js/list-menu.js') }}
 	@yield('scripts')
 </head>
 <body>

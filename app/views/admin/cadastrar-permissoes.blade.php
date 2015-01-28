@@ -33,8 +33,8 @@
 		<option value="0">Não</option>
 	</select>
 	<br>
-	<a href="{{ URL::to('admin/acl') }}" type="button" class="wm-btn">Cancelar</a>
-	<button type="submit" class="wm-btn wm-btn-blue">Salvar</button>
+	<a href="{{ URL::to('admin/acl') }}" type="button" class="btn large">Cancelar</a>
+	<button type="submit" class="btn orange large">Salvar</button>
 </form>
 @stop
 

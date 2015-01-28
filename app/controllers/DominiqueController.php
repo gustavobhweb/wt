@@ -43,7 +43,7 @@ class DominiqueController extends Controller
 			$query = Palavra::wherePalavra($palavra)->first();
 			if (!$query || !$query->count()) {
 				$query = Palavra::create([
-					'palavra' => $palavra
+					'palavra' => str_replace('?', '', $palavra)
 				]);
 			}
 
@@ -106,39 +106,44 @@ class DominiqueController extends Controller
 
 		$param = strtolower($param);
 		$param = str_replace(strtolower($this->IA), '', $param);
-		$frase = 'Ainda não sei o que é &ldquo;' . str_replace('+', '', $param) . '&rdquo;. Se ficar sabendo, me fala.';
+		$paramS = str_replace('+', '', $param);
+		$frase = 'Ainda não sei o que é &ldquo;' . $paramS . '&rdquo;. Se ficar sabendo, me fala.';
 		
 		try
 		{
-		/**
-		* Tenta encontrar na Wikipedia
-		*/
-		$url = "https://pt.wikipedia.org/w/api.php?action=query&titles={$param}&redirects=1&prop=extracts&exchars=1000&exintro&format=json";
-			$ch = curl_init();
-			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-			curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-			curl_setopt($ch, CURLOPT_URL,$url);
-			$result=curl_exec($ch);
-			curl_close($ch);
+			/**
+			* Tenta encontrar na Wikipedia
+			*/
+			
+			$results = $this->wiki($param);
+			$results = (array)$results;
+			$results = reset($results);
 
-			$results = json_decode($result)->query->pages;
-
-			if (!count($results) || !$results || is_null($results)) {
-				$conhecimento = Conhecimento::whereTermo(str_replace('+', '', $param));
+			if (!count($results) || !$results || is_null($results) || !isset($results->extract)) {
+				$conhecimento = Conhecimento::whereTermo($paramS);
 				if ($conhecimento->count()) {
 					$frase = $conhecimento->first()->definicao;
 				}
-			} else {
-				foreach ($results as $page) {
-					$frase = $page->extract;
+				$palavraKnown = Palavra::wherePalavra($paramS);
+				if (!$palavraKnown->count()) {
+					Palavra::create([
+						'palavra' => $paramS,
+						'aguardando_definicao' => 1
+					]);
+				} else {
+					$palavraKnown->update([
+						'aguardando_definicao' => 1
+					]);
 				}
+			} else {
+				$frase = $results->extract;
 			}
 			
 			/**
 			* Verifica se o que foi pesquisado existe no banco de dados,
 			* senão salva
 			*/
-			if (!Conhecimento::whereTermo(str_replace('+', '', $param))->count()) {
+			if (!Conhecimento::whereTermo($paramS)->count()) {
 				Conhecimento::create([
 					'termo' => str_replace('+', '', $param),
 					'definicao' => $frase
@@ -146,11 +151,23 @@ class DominiqueController extends Controller
 			}
 			return $frase;
 		} catch (Exception $ex){
-			$conhecimento = Conhecimento::whereTermo(str_replace('+', '', $param));
+			$conhecimento = Conhecimento::whereTermo($paramS);
 			if ($conhecimento->count()) {
 				$frase = $conhecimento->first()->definicao;
 			}
 			return $frase;
 		}
 	}
-}
+
+	private function wiki($param)
+	{
+		$url = "https://pt.wikipedia.org/w/api.php?action=query&titles={$param}&redirects=1&prop=extracts&exchars=1000&exintro&format=json";
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_URL,$url);
+		$result=curl_exec($ch);
+		curl_close($ch);
+		return json_decode($result)->query->pages;
+	}
+}	

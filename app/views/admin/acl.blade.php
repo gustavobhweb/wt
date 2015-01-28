@@ -4,7 +4,15 @@
 
 @section('topbar')
 	<h4><i class="glyphicon glyphicon-lock"></i> Access Control List</h4>
-	<button class="btn medium orange btn-gerenciar dropdown-toggle"><i class="glyphicon glyphicon-cog"></i> Gerenciar <span class="caret"></span></button>
+	<div class="list-menu right small">
+		<button class="btn medium orange"><i class="glyphicon glyphicon-cog"></i> Gerenciar <span class="caret"></span></button>
+		<div class="box">
+			<ul>
+				<li><a href='{{ URL::to("admin/cadastrar-permissoes") }}'>Nova permissão</a></li>
+				<li><a href='#'>Novo nível</a></li>
+			</ul>
+		</div><!-- .box -->
+	</div><!-- .list-menu -->
 @endsection
 
 @section('content')

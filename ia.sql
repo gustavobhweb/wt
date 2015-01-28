@@ -1,0 +1,1 @@
+ALTER TABLE palavras ADD aguardando_definicao TINYINT(1) NOT NULL DEFAULT 0 AFTER palavra;
