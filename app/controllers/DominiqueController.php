@@ -69,7 +69,6 @@ class DominiqueController extends Controller
 		$fraseArray = explode(' ', $fraseObj->frase);
 		if ((in_array('o', $fraseArray) && in_array('que', $fraseArray)) || (in_array('fala', $fraseArray) || in_array('fale', $fraseArray) && (in_array('sobre', $fraseArray) || in_array('de', $fraseArray)))) {
 			$frase = $this->knowledge($fraseObj->frase);
-		} elseif (in_array('definição', $fraseArray) && in_array('de', $fraseArray) && in_array('é', $fraseArray)) {
 		} elseif (in_array(str_replace(' ', '', str_replace(strtolower($this->me), '', $fraseObj->frase)), ['oi', 'olá', 'ola', 'oii', 'oiii', 'hi', 'hello'])) {
 			$fraseArrRand = [
 				'Oi ' . $this->me,
@@ -169,5 +168,18 @@ class DominiqueController extends Controller
 		$result=curl_exec($ch);
 		curl_close($ch);
 		return json_decode($result)->query->pages;
+	}
+
+	public function postSpeakNew()
+	{
+		$text = strip_tags(Input::get('text'));
+		$text = str_replace(' ', '+', $text);
+		$url = "http://translate.google.com.br/translate_tts?ie=UTF-8&q={$text}&tl=pt_br&textlen=100&prev=input";
+	    
+	    $mp3 = file_get_contents($url);
+	    file_put_contents(public_path('dominique/speak/temp.mp3'), $mp3);
+	    return Response::json([
+	    	'url' => URL::to('dominique/speak/temp.mp3')
+	    ]);
 	}
 }	

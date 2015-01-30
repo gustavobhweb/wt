@@ -5,8 +5,8 @@
 	<input type="text" class="wm-input frase" autofocus name="frase" />
 	<button class="btn medium green">Talk <i class="glyphicon glyphicon-bullhorn"></i></button>
 </form>
-<div id="audio"></div>
-{{ (isset($answer)) ? '<h4 id="text">Dominique: ' . $answer . '</h4>' : '' }}
+<br>
+{{ (isset($answer)) ? '<h4 id="text">' . $answer . '</h4>' : '' }}
 @stop
 
 @section('scripts')
