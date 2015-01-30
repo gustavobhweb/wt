@@ -8,7 +8,7 @@ class DominiqueController extends Controller
 	private $fraseContext;
 
 	public function anyInicio()
-	{		
+	{
 		if (Request::isMethod('post')) {
 			$answer = $this->process(Input::get('frase'))->answer();
 		}
