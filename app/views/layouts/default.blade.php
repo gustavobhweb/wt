@@ -3,7 +3,7 @@
     <head>
 
         {{ HTML::style('css/default.css') }}
-         
+        
         @yield('styles') 
 
         {{ HTML::script('js/jquery-1.10.2.min.js')  }}
